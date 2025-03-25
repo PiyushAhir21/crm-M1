@@ -1,6 +1,6 @@
 package opportunityTest;
 
-
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Set;
 
@@ -8,37 +8,35 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+
+import generic_utility.FileUtility;
 
 public class CreateOppWithTypeTest {
 
-	public static void main(String[] args) throws InterruptedException {
+	@Test
+	public void createOppWithTypeTest() throws InterruptedException, IOException {
 
-		ChromeOptions opt = new ChromeOptions();
-		opt.addArguments("--start-maximized");
-		opt.addArguments("--incognito");
+//		get data from properties file
+		FileUtility futil = new FileUtility();
+		String URL = futil.getDataFromPropFile("url");
+		String BROWSER = futil.getDataFromPropFile("bro");
+		String USERNAME = futil.getDataFromPropFile("un");
+		String PASSWORD = futil.getDataFromPropFile("pwd");
 
-		WebDriver driver = new ChromeDriver(opt);
+//		get data from excel		
+		String orgName = futil.getDataFromExcelFile("org", 1, 0);
+
+		// Opening Browser
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-//		Login
-		driver.get("http://localhost:8888/");
-		WebElement username = driver.findElement(By.name("user_name"));
-		username.sendKeys("admin");
-		WebElement password = driver.findElement(By.name("user_password"));
-		password.sendKeys("password");
-		WebElement submitBtn = driver.findElement(By.id("submitButton"));
-		submitBtn.click();
+//		LOGIN Page
+		driver.get(URL);
 
-		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		WebElement we = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("123")));
-		
 //		create Opportunity
 		driver.findElement(By.linkText("Opportunities")).click();
 		driver.findElement(By.xpath("//img[@title='Create Opportunity...']")).click();
@@ -62,8 +60,6 @@ public class CreateOppWithTypeTest {
 				System.out.println("bcz ashutosh ne bola...");
 			}
 		}
-
-		String orgName = "jspider_123";
 
 		Thread.sleep(2000);
 

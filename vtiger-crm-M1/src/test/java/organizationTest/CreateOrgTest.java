@@ -12,6 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import generic_utility.FileUtility;
 import generic_utility.WebDriverUtility;
 import object_repository.LoginPage;
+import object_repository.VerifyOppPage;
 
 public class CreateOrgTest {
 
@@ -24,41 +25,19 @@ public class CreateOrgTest {
 		String USERNAME = futil.getDataFromPropFile("un");
 		String PASSWORD = futil.getDataFromPropFile("pwd");
 
+		System.out.println("---first is running---");
 //		get data from excel		
 		String orgName = futil.getDataFromExcelFile("org", 1, 0);
 
-		// Opening Browser
+//		Opening Browser
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
 //		LOGIN Page
 		driver.get(URL);
-
-		/*
-		 * PageFactory.initElements(driver, CreateOrgTestclass)
-		 * 
-		 * @FindBy(locatorName = "locatorValue") private WebElement username
-		 * 
-		 * public WebElement getUn(){ return username;
-		 * 
-		 */
-
 		LoginPage lp = new LoginPage(driver);
-
-//		Business utility
 		lp.login(USERNAME, PASSWORD);
-
-//		lp.getUsername().sendKeys(USERNAME);
-//		lp.getPassword().sendKeys(PASSWORD);
-//		lp.getLoginBtn().click();
-
-//		WebElement username = driver.findElement(By.name("user_name"));
-//		username.sendKeys(USERNAME);
-//		WebElement password = driver.findElement(By.name("user_password"));
-//		password.sendKeys(PASSWORD);
-//		WebElement submitBtn = driver.findElement(By.id("submitButton"));
-//		submitBtn.click();
 
 //		creating organization
 		driver.findElement(By.linkText("Organizations")).click(); // Home Page
@@ -72,7 +51,9 @@ public class CreateOrgTest {
 		driver.findElement(By.xpath("//input[@class='crmbutton small save']")).click(); // Org Page
 
 //		verification
-		String actOrgName = driver.findElement(By.id("dtlview_Organization Name")).getText(); // Verify Org Page
+//		String actOrgName = driver.findElement(By.id("dtlview_Organization Name")).getText(); // Verify Org Page.
+		VerifyOppPage vop = new VerifyOppPage(driver);
+		String actOrgName = vop.getActOrgName().getText();
 		boolean status = actOrgName.equals(orgName);
 		if (status) {
 			System.out.println("Organization created successfully");

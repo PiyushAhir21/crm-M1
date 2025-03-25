@@ -11,39 +11,35 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+import generic_utility.FileUtility;
+import object_repository.LoginPage;
 
 public class CreateOppWithDateTest {
 
-	public static void main(String[] args) throws InterruptedException, IOException {
+	@Test
+	public void createOppWithDateTest() throws IOException, InterruptedException{
+//		get data from properties file
+		FileUtility futil = new FileUtility();
+		String URL = futil.getDataFromPropFile("url");
+		String BROWSER = futil.getDataFromPropFile("bro");
+		String USERNAME = futil.getDataFromPropFile("un");
+		String PASSWORD = futil.getDataFromPropFile("pwd");
 
-		FileInputStream fis = new FileInputStream("C:\\Users\\User\\git\\M1_selenium\\M1_Selenium_01\\resource\\commondata.properties");
-		
-		Properties pObj = new Properties();
-		pObj.load(fis);
+//		get data from excel		
+		String orgName = futil.getDataFromExcelFile("org", 1, 0);
 
-		String URL = pObj.getProperty("url");
-		String BROWSER = pObj.getProperty("bro");
-		String USERNAME = pObj.getProperty("un");
-		String PASSWORD = pObj.getProperty("pwd");
-		
-		
+		// Opening Browser
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-//		Login
+//		LOGIN Page
 		driver.get(URL);
-		
-		WebElement username = driver.findElement(By.name("user_name"));
-		username.sendKeys(USERNAME);
-		
-		WebElement password = driver.findElement(By.name("user_password"));
-		password.sendKeys(PASSWORD);
-		
-		WebElement submitBtn = driver.findElement(By.id("submitButton"));
-		submitBtn.click();
+		LoginPage lp = new LoginPage(driver);
+		lp.login(USERNAME, PASSWORD);
 
 //		create Opportunity
 		driver.findElement(By.linkText("Opportunities")).click();
@@ -69,7 +65,6 @@ public class CreateOppWithDateTest {
 			}
 		}
 
-		String orgName = "jspider_123";
 
 		Thread.sleep(2000);
 
@@ -118,4 +113,5 @@ public class CreateOppWithDateTest {
 //		closing browser
 		driver.close();
 	}
+
 }
