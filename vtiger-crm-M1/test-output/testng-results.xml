@@ -1,31 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-03-25T12:24:00 IST" name="Suite" finished-at="2025-03-25T12:24:26 IST" duration-ms="26715">
+  <suite started-at="2025-03-26T11:59:54 IST" name="Default suite" finished-at="2025-03-26T12:03:22 IST" duration-ms="208715">
     <groups>
-      <group name="Regression">
-        <method signature="OpportunityTest.createOppWithOrgTest()[pri:0, instance:opportunityTest.OpportunityTest@f5958c9]" name="createOppWithOrgTest" class="opportunityTest.OpportunityTest"/>
-      </group> <!-- Regression -->
-      <group name="Smoke">
-        <method signature="OpportunityTest.createOppWithDateTest()[pri:0, instance:opportunityTest.OpportunityTest@2a4fb17b]" name="createOppWithDateTest" class="opportunityTest.OpportunityTest"/>
-      </group> <!-- Smoke -->
     </groups>
-    <test started-at="2025-03-25T12:24:00 IST" name="Test1" finished-at="2025-03-25T12:24:26 IST" duration-ms="26700">
-      <class name="opportunityTest.OpportunityTest">
-        <test-method signature="createOppWithDateTest()[pri:0, instance:opportunityTest.OpportunityTest@2a4fb17b]" started-at="2025-03-25T12:24:00 IST" name="createOppWithDateTest" finished-at="2025-03-25T12:24:26 IST" duration-ms="26637" status="PASS">
+    <test started-at="2025-03-26T11:59:54 IST" name="Default test" finished-at="2025-03-26T12:03:22 IST" duration-ms="208715">
+      <class name="opportunityTest.CreateOppWithOrgTest">
+        <test-method is-config="true" signature="bs()[pri:0, instance:opportunityTest.CreateOppWithOrgTest@4c12331b]" started-at="2025-03-26T11:59:54 IST" name="bs" finished-at="2025-03-26T11:59:54 IST" duration-ms="20" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createOppWithDateTest -->
-      </class> <!-- opportunityTest.OpportunityTest -->
-    </test> <!-- Test1 -->
-    <test started-at="2025-03-25T12:24:00 IST" name="Test2" finished-at="2025-03-25T12:24:26 IST" duration-ms="26715">
-      <class name="opportunityTest.OpportunityTest">
-        <test-method signature="createOppWithOrgTest()[pri:0, instance:opportunityTest.OpportunityTest@f5958c9]" started-at="2025-03-25T12:24:00 IST" name="createOppWithOrgTest" finished-at="2025-03-25T12:24:26 IST" duration-ms="26663" status="PASS">
+        </test-method> <!-- bs -->
+        <test-method is-config="true" signature="bt()[pri:0, instance:opportunityTest.CreateOppWithOrgTest@4c12331b]" started-at="2025-03-26T11:59:54 IST" name="bt" finished-at="2025-03-26T11:59:54 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createOppWithOrgTest -->
-      </class> <!-- opportunityTest.OpportunityTest -->
-    </test> <!-- Test2 -->
-  </suite> <!-- Suite -->
+        </test-method> <!-- bt -->
+        <test-method is-config="true" signature="bc()[pri:0, instance:opportunityTest.CreateOppWithOrgTest@4c12331b]" started-at="2025-03-26T11:59:54 IST" name="bc" finished-at="2025-03-26T12:02:29 IST" duration-ms="155020" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bc -->
+        <test-method is-config="true" signature="bm()[pri:0, instance:opportunityTest.CreateOppWithOrgTest@4c12331b]" started-at="2025-03-26T12:02:29 IST" name="bm" finished-at="2025-03-26T12:02:35 IST" duration-ms="6615" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bm -->
+        <test-method signature="createOrgTest()[pri:0, instance:opportunityTest.CreateOppWithOrgTest@4c12331b]" started-at="2025-03-26T12:02:35 IST" name="createOrgTest" finished-at="2025-03-26T12:02:53 IST" duration-ms="17305" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createOrgTest -->
+        <test-method is-config="true" signature="am()[pri:0, instance:opportunityTest.CreateOppWithOrgTest@4c12331b]" started-at="2025-03-26T12:02:53 IST" name="am" finished-at="2025-03-26T12:03:22 IST" duration-ms="29554" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- am -->
+        <test-method is-config="true" signature="ac()[pri:0, instance:opportunityTest.CreateOppWithOrgTest@4c12331b]" started-at="2025-03-26T12:03:22 IST" name="ac" finished-at="2025-03-26T12:03:22 IST" duration-ms="171" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ac -->
+        <test-method is-config="true" signature="at()[pri:0, instance:opportunityTest.CreateOppWithOrgTest@4c12331b]" started-at="2025-03-26T12:03:22 IST" name="at" finished-at="2025-03-26T12:03:22 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- at -->
+        <test-method is-config="true" signature="as()[pri:0, instance:opportunityTest.CreateOppWithOrgTest@4c12331b]" started-at="2025-03-26T12:03:22 IST" name="as" finished-at="2025-03-26T12:03:22 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- as -->
+      </class> <!-- opportunityTest.CreateOppWithOrgTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

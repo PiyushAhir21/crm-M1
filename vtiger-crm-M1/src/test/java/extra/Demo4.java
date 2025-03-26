@@ -1,9 +1,18 @@
 package extra;
+
 import org.testng.annotations.Test;
 
-public class Demo4 {
+import base_utility.BaseClass;
+
+public class Demo4 extends BaseClass{
+
 	@Test
-	public void multi() {
-		System.out.println("This is multiply method !!!");
+	public void demo1() {
+		System.out.println("Creating Opp with Organization name");
+	}
+
+	@Test
+	public void demo2() {
+		System.out.println("Creating Opp with Type");
 	}
 }

@@ -41,6 +41,8 @@ public class CreateOppWithDateTest {
 		LoginPage lp = new LoginPage(driver);
 		lp.login(USERNAME, PASSWORD);
 
+		
+		
 //		create Opportunity
 		driver.findElement(By.linkText("Opportunities")).click();
 		driver.findElement(By.xpath("//img[@title='Create Opportunity...']")).click();

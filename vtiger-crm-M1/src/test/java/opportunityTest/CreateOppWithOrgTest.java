@@ -1,42 +1,24 @@
 package opportunityTest;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.util.Set;
 
+import org.apache.poi.EncryptedDocumentException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
+import base_utility.BaseClass;
 import generic_utility.FileUtility;
-import object_repository.LoginPage;
 
-public class CreateOppWithOrgTest {
+public class CreateOppWithOrgTest extends BaseClass {
 
 	@Test
 	public void createOppWithOrgTest() throws InterruptedException, IOException {
-//		get data from properties file
 		FileUtility futil = new FileUtility();
-		String URL = futil.getDataFromPropFile("url");
-		String BROWSER = futil.getDataFromPropFile("bro");
-		String USERNAME = futil.getDataFromPropFile("un");
-		String PASSWORD = futil.getDataFromPropFile("pwd");
 
 //		get data from excel		
 		String orgName = futil.getDataFromExcelFile("org", 1, 0);
-
-		// Opening Browser
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-
-//		LOGIN Page
-		driver.get(URL);
-		LoginPage lp = new LoginPage(driver);
-		lp.login(USERNAME, PASSWORD);
 
 //		create Opportunity
 		driver.findElement(By.linkText("Opportunities")).click();
@@ -87,16 +69,23 @@ public class CreateOppWithOrgTest {
 		if (status2) {
 			System.out.println("Organization verified successfully");
 		}
-
-//		logout
-		WebElement profile = driver.findElement(By.cssSelector("img[src=\"themes/softed/images/user.PNG\"]"));
-//		profile hover
-		Actions act = new Actions(driver);
-		act.moveToElement(profile).build().perform();
-		driver.findElement(By.linkText("Sign Out")).click();
-
-//		closing browser
-		driver.close();
 	}
 
+	@Test
+	public void createOrgTest() throws EncryptedDocumentException, IOException {
+//		FileUtility futil = new FileUtility();
+//		String orgName = futil.getDataFromExcelFile("org", 1, 0);
+//
+//		driver.findElement(By.linkText("Organizations")).click(); // Home Page
+//
+//		driver.findElement(By.cssSelector("img[alt='Create Organization...']")).click(); // Organization page
+//
+//		WebElement org = driver.findElement(By.name("accountname")); // Org Page
+//		org.sendKeys(orgName);
+//
+////		save 
+//		driver.findElement(By.xpath("//input[@class='crmbutton small save']")).click(); // Org Page
+
+		System.out.println("");
+	}
 }
