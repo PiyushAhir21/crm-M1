@@ -1,11 +1,21 @@
 package extra;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class Demo2 {
-	@Test(groups = "RT")
-	public void edge() {
-		WebDriver driver = new EdgeDriver();
+	@Test(dataProvider = "getData")
+	public void add(int a , int b) {
+		System.out.println(a + b);
+	}
+	 
+	@DataProvider
+	public Object[][] getData() {
+		Object[][] num = new Object[2][2];
+		num[0][0] = 1;
+		num[0][1] = 3;
+		
+		num[1][0] = 20;
+		num[1][1] = 3;
+		return num;
 	}
 }

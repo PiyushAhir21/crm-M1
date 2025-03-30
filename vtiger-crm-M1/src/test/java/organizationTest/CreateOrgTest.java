@@ -57,6 +57,8 @@ public class CreateOrgTest {
 		boolean status = actOrgName.equals(orgName);
 		if (status) {
 			System.out.println("Organization created successfully");
+		}else {
+			System.out.println("Organization creation failed!!!");
 		}
 
 //		logout -> Home page

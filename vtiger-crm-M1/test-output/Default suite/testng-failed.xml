@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="extra.Demo4">
+      <class name="extra.ExampleAssert">
         <methods>
-          <include name="HomeTown"/>
+          <include name="exampleOfAssertion"/>
         </methods>
-      </class> <!-- extra.Demo4 -->
+      </class> <!-- extra.ExampleAssert -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

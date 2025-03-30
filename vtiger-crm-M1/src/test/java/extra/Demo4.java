@@ -32,6 +32,8 @@ public class Demo4 {
 				places[i][0] = data;
 			}
 		}
+		
+		
 //		String city1 = sh.getRow(1).getCell(0).getStringCellValue();
 //		String city2 = sh.getRow(2).getCell(0).getStringCellValue();
 //		String city3 = sh.getRow(3).getCell(0).getStringCellValue();
