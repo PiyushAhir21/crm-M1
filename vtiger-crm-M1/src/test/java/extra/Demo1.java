@@ -1,11 +1,13 @@
 package extra;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Demo1 {
-	@Test(groups = "ST")
-	public void chrome() {
-		WebDriver driver = new ChromeDriver();
+import base_utility.BaseClass;
+
+
+public class Demo1 extends BaseClass {
+	@Test
+	public void chrome() throws InterruptedException {
+		Assert.assertTrue(false);
 	}
 }
